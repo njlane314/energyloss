@@ -7,7 +7,9 @@ EventAction::EventAction()
 
 EventAction::~EventAction() {}
 
-void EventAction::BeginOfEventAction(const G4Event* event) {}
+void EventAction::BeginOfEventAction(const G4Event* event) {
+    auto material_response_ = new MaterialResponse("lAr");
+}
 
 void EventAction::EndOfEventAction(const G4Event* event) {
     if (verbose_level_ > 0) {
@@ -27,6 +29,7 @@ void EventAction::EndOfEventAction(const G4Event* event) {
     }
 
     output_manager_->RecordEntry(event);
+    material_response_.~MaterialResponse();
 }
 
 void EventAction::PrintEvent(const G4Event* event) {}

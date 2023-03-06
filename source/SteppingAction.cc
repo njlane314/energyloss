@@ -8,11 +8,14 @@ SteppingAction::SteppingAction()
 SteppingAction::~SteppingAction() {}
 
 void SteppingAction::UserSteppingAction(const G4Step* step) {
+	material_response_ = MaterialResponse::Instance();
     if (verbose_level_ > 2) {
 		PrintStep(step);
 	}
 
+	material_response_->process_step(step);
 	output_manager_->RecordEntry(step);
 }
 
 void SteppingAction::PrintStep(const G4Step* step) {}
+
