@@ -9,6 +9,7 @@
 #include "G4RunManager.hh"
 
 #include "OutputManager.hh"
+#include "MaterialResponse.hh"
 
 class EventAction : public G4UserEventAction {
  public:
@@ -22,6 +23,7 @@ class EventAction : public G4UserEventAction {
 	void PrintEvent(const G4Event* event);
 
 	OutputManager* output_manager_;
+	std::unique_ptr<MaterialResponse> material_response_;
 
 	int verbose_level_;
 	std::string source_;

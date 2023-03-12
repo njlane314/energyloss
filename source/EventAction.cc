@@ -8,7 +8,7 @@ EventAction::EventAction()
 EventAction::~EventAction() {}
 
 void EventAction::BeginOfEventAction(const G4Event* event) {
-    auto material_response_ = new MaterialResponse("lAr");
+    material_response_ = std::make_unique<MaterialResponse>("lAr");
 }
 
 void EventAction::EndOfEventAction(const G4Event* event) {
@@ -29,7 +29,7 @@ void EventAction::EndOfEventAction(const G4Event* event) {
     }
 
     output_manager_->RecordEntry(event);
-    material_response_.~MaterialResponse();
+    material_response_.reset();
 }
 
 void EventAction::PrintEvent(const G4Event* event) {}

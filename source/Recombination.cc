@@ -11,8 +11,7 @@ static std::pair<double, double> Recombination::run_recombination(int ionisation
     optical_photons_ = excitations + (ionisations - thermal_electrons_);
 }
 
-double Recombination::compute_recombination_factor(double visible_linear_transfer, double electric_field)
-{
+double Recombination::compute_recombination_factor(double visible_linear_transfer, double electric_field) {
     auto BirksRecomb = [&]() -> G4double {
         G4double ARecomb = 0.800;
         G4double kRecomb = 0.0486;

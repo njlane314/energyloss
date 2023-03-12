@@ -1,3 +1,5 @@
+#ifndef OPTICAL_PHOTON_HH
+#define OPTICAL_PHOTON_HH
 
 class OpticalPhoton {
 
@@ -14,3 +16,5 @@ private:
     double time_;
     double wavelength_;
 };
+
+#endif // OPTICAL_PHOTON_HH
